@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta name="theme-color" content="#0C447C">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -15,420 +15,541 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --primary:#0C447C;--primary-light:#E6F1FB;--primary-mid:#378ADD;
-  --bg:#F4F6F9;--surface:#FFFFFF;--surface2:#F1F4F8;
-  --border:rgba(0,0,0,0.08);--border2:rgba(0,0,0,0.14);
-  --text1:#1A1A2E;--text2:#5A6478;--text3:#9AA3B2;
-  --green-bg:#EAF3DE;--green-text:#3B6D11;
-  --amber-bg:#FAEEDA;--amber-text:#854F0B;
-  --red-bg:#FAECE7;--red-text:#993C1D;
-  --purple-bg:#F0EAFA;--purple-text:#6B21A8;
-  --teal-bg:#E0F7F4;--teal-text:#0F766E;
-  --radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:20px;
-  --safe-top:env(safe-area-inset-top,0px);
-  --safe-bottom:env(safe-area-inset-bottom,0px);
+  --p:#0C447C;--pl:#E6F1FB;--pm:#378ADD;
+  --bg:#F4F6F9;--sf:#FFF;--sf2:#F1F4F8;
+  --bd:rgba(0,0,0,0.08);--bd2:rgba(0,0,0,0.14);
+  --t1:#1A1A2E;--t2:#5A6478;--t3:#9AA3B2;
+  --gBg:#EAF3DE;--gTx:#3B6D11;
+  --aBg:#FAEEDA;--aTx:#854F0B;
+  --rBg:#FAECE7;--rTx:#993C1D;
+  --purBg:#F0EAFA;--purTx:#6B21A8;
+  --tealBg:#E0F7F4;--tealTx:#0F766E;
+  --orBg:#FFF3E0;--orTx:#B45309;
+  --rst:8px;--rmd:12px;--rlg:16px;--rxl:20px;
+  --st:env(safe-area-inset-top,0px);
+  --sb:env(safe-area-inset-bottom,0px);
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',sans-serif;color:var(--text1)}
+html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',sans-serif;color:var(--t1)}
 body{overflow-x:hidden}
-#app{max-width:480px;margin:0 auto;padding-bottom:calc(72px + var(--safe-bottom));min-height:100vh}
-.header{background:var(--surface);border-bottom:0.5px solid var(--border);padding:calc(var(--safe-top)+12px) 16px 12px;position:sticky;top:0;z-index:50}
-.header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.logo{font-size:15px;font-weight:700;color:var(--text1);display:flex;align-items:center;gap:6px}
-.logo-co{color:var(--primary)}
-.btn-add{background:var(--primary);color:#fff;border:none;border-radius:var(--radius-sm);padding:8px 13px;font-size:13px;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:5px;font-family:inherit}
-.co-selector{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none;margin-bottom:10px}
-.co-selector::-webkit-scrollbar{display:none}
-.co-btn{padding:6px 14px;border-radius:20px;font-size:12px;border:0.5px solid var(--border2);background:var(--surface2);color:var(--text2);cursor:pointer;white-space:nowrap;flex-shrink:0;font-family:inherit;transition:all .15s}
-.co-btn.on{background:var(--primary);border-color:var(--primary);color:#fff;font-weight:500}
-.search-row{display:flex;gap:7px}
-.search-wrap{flex:1;position:relative}
-.search-wrap svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--text3)}
-.search-wrap input{width:100%;padding:9px 10px 9px 34px;border:0.5px solid var(--border2);border-radius:var(--radius-sm);background:var(--surface2);font-size:14px;color:var(--text1);font-family:inherit;outline:none}
-.filter-btn{padding:7px 9px;border:0.5px solid var(--border2);border-radius:var(--radius-sm);background:var(--surface2);cursor:pointer;font-size:11px;color:var(--text2);white-space:nowrap;font-family:inherit;transition:all .15s}
-.filter-btn.on{background:var(--primary-light);border-color:var(--primary-mid);color:var(--primary);font-weight:500}
-.tabs{display:flex;padding:10px 16px 0;gap:4px;background:var(--surface);border-bottom:0.5px solid var(--border);overflow-x:auto;scrollbar-width:none}
+#app{max-width:480px;margin:0 auto;padding-bottom:calc(70px + var(--sb));min-height:100vh}
+
+/* ── HEADER ── */
+.hdr{background:var(--sf);border-bottom:0.5px solid var(--bd);padding:calc(var(--st)+10px) 14px 10px;position:sticky;top:0;z-index:50}
+.hdr-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.logo{font-size:15px;font-weight:700;display:flex;align-items:center;gap:6px}
+.logo-co{color:var(--p)}
+.btn-add{background:var(--p);color:#fff;border:none;border-radius:var(--rst);padding:7px 12px;font-size:12px;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:4px;font-family:inherit}
+
+/* company pills */
+.co-bar{display:flex;gap:5px;overflow-x:auto;padding-bottom:1px;scrollbar-width:none;margin-bottom:8px}
+.co-bar::-webkit-scrollbar{display:none}
+.co-btn{padding:5px 13px;border-radius:20px;font-size:12px;border:0.5px solid var(--bd2);background:var(--sf2);color:var(--t2);cursor:pointer;white-space:nowrap;flex-shrink:0;font-family:inherit;transition:all .15s}
+.co-btn.on{background:var(--p);border-color:var(--p);color:#fff;font-weight:500}
+
+/* search row (single line) */
+.search-row{display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.sw{flex:1;position:relative}
+.sw svg{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--t3);pointer-events:none}
+.sw input{width:100%;padding:8px 10px 8px 30px;border:0.5px solid var(--bd2);border-radius:var(--rst);background:var(--sf2);font-size:13px;color:var(--t1);font-family:inherit;outline:none}
+.sw input:focus{border-color:var(--pm)}
+
+/* kind filter badges — row below search */
+.kind-bar{display:flex;gap:5px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.kind-bar::-webkit-scrollbar{display:none}
+.kb{display:inline-flex;align-items:center;gap:4px;padding:5px 11px;border-radius:20px;font-size:11px;border:0.5px solid var(--bd2);background:var(--sf2);color:var(--t2);cursor:pointer;white-space:nowrap;flex-shrink:0;font-family:inherit;transition:all .15s}
+.kb.on{font-weight:500}
+.kb-all.on{background:var(--p);border-color:var(--p);color:#fff}
+.kb-water.on{background:var(--pl);border-color:var(--pm);color:var(--p)}
+.kb-ice.on{background:var(--gBg);border-color:#5a9c2a;color:var(--gTx)}
+.kb-air.on{background:var(--purBg);border-color:#9b59b6;color:var(--purTx)}
+.kb-hot_cold.on{background:var(--tealBg);border-color:#0e9081;color:var(--tealTx)}
+
+/* ── TABS ── */
+.tabs{display:flex;padding:8px 14px 0;gap:3px;background:var(--sf);border-bottom:0.5px solid var(--bd);overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
-.tab{padding:7px 12px;border-radius:var(--radius-sm) var(--radius-sm) 0 0;font-size:12px;cursor:pointer;border:0.5px solid transparent;color:var(--text2);background:transparent;white-space:nowrap;flex-shrink:0;font-family:inherit;transition:all .15s}
-.tab.active{background:var(--surface);border-color:var(--border2);border-bottom-color:var(--surface);color:var(--text1);font-weight:500;position:relative;top:0.5px}
-.stats-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px 16px}
-.stat-card{background:var(--surface2);border-radius:var(--radius-sm);padding:12px 14px}
-.stat-label{font-size:12px;color:var(--text2);margin-bottom:4px}
-.stat-val{font-size:20px;font-weight:700;color:var(--text1)}
-.stat-val span{font-size:12px;font-weight:400;color:var(--text2)}
-.stat-sub{font-size:11px;color:var(--text3);margin-top:2px}
-.section{padding:0 16px;margin-top:4px}
-.sec-hdr{display:flex;align-items:center;justify-content:space-between;padding:10px 0 7px}
-.sec-title{font-size:13px;font-weight:500;color:var(--text1);display:flex;align-items:center;gap:6px}
-.cnt-badge{background:var(--surface2);color:var(--text2);font-size:11px;padding:2px 8px;border-radius:20px;font-weight:400}
-.sec-rent{font-size:12px;color:var(--text2)}
-.machine-card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--radius-md);margin-bottom:8px;cursor:pointer;overflow:hidden;transition:transform .1s}
-.machine-card:active{transform:scale(0.985)}
-.card-thumb{width:100%;height:100px;object-fit:cover;display:block}
-.card-no-photo{width:100%;height:60px;background:var(--surface2);display:flex;align-items:center;justify-content:center;gap:6px;color:var(--text3);font-size:12px;border-bottom:0.5px solid var(--border)}
-.card-body{padding:10px 12px}
-.card-top{display:flex;align-items:flex-start;gap:10px}
-.type-icon{width:34px;height:34px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:17px}
-.tw{background:var(--primary-light)}.ti2{background:var(--green-bg)}.tair{background:var(--purple-bg)}.thc{background:var(--teal-bg)}
-.card-info{flex:1;min-width:0}
-.card-name{font-size:13px;font-weight:500;color:var(--text1);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.card-loc{font-size:11px;color:var(--text2);margin-bottom:4px}
-.card-tags{display:flex;gap:3px;flex-wrap:wrap}
-.tag{font-size:10px;padding:2px 7px;border-radius:20px;border:0.5px solid var(--border)}
-.tco{background:var(--surface2);color:var(--text2)}
-.tok{background:var(--green-bg);color:var(--green-text);border-color:transparent}
-.twarn{background:var(--amber-bg);color:var(--amber-text);border-color:transparent}
-.texp{background:var(--red-bg);color:var(--red-text);border-color:transparent}
-.tphoto{background:var(--primary-light);color:var(--primary);border-color:transparent}
-.tkind{background:var(--surface2);color:var(--text2);border-color:var(--border2)}
-.card-footer{border-top:0.5px solid var(--border);margin-top:8px;padding-top:7px;display:flex;justify-content:space-between;align-items:center}
-.footer-meta{font-size:11px;color:var(--text2)}
-.footer-rent{font-size:12px;font-weight:700;color:var(--text1)}
-.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:100;align-items:flex-end;justify-content:center}
-.overlay.open{display:flex}
-.sheet{background:var(--surface);border-radius:var(--radius-xl) var(--radius-xl) 0 0;width:100%;max-width:480px;max-height:92vh;overflow-y:auto;padding-bottom:calc(24px + var(--safe-bottom))}
-.sheet-handle{width:36px;height:4px;background:var(--border2);border-radius:2px;margin:12px auto 4px}
-.sheet-hdr{display:flex;align-items:center;justify-content:space-between;padding:10px 16px 14px}
-.sheet-title{font-size:16px;font-weight:700;color:var(--text1)}
-.close-btn{width:32px;height:32px;border:0.5px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;background:transparent;color:var(--text2);font-size:18px}
-.form-body{padding:0 16px}
-.fgrp{margin-bottom:12px}
-.flabel{font-size:13px;color:var(--text2);margin-bottom:5px;display:block}
-.finput,.fselect{width:100%;padding:9px 12px;border:0.5px solid var(--border2);border-radius:var(--radius-sm);background:var(--surface);font-size:14px;color:var(--text1);font-family:inherit;outline:none;-webkit-appearance:none;appearance:none}
-.finput:focus,.fselect:focus{border-color:var(--primary-mid)}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.btn-save{width:100%;padding:13px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-sm);font-size:15px;font-weight:700;cursor:pointer;margin-top:6px;font-family:inherit}
-.btn-del{width:100%;padding:11px;background:transparent;color:var(--red-text);border:0.5px solid #F09595;border-radius:var(--radius-sm);font-size:14px;cursor:pointer;margin-top:8px;font-family:inherit}
-.photo-actions{display:flex;gap:8px;margin-bottom:8px}
-.photo-action-btn{flex:1;padding:10px 8px;border:0.5px solid var(--border2);border-radius:var(--radius-sm);background:var(--surface2);cursor:pointer;font-size:13px;color:var(--text2);display:flex;align-items:center;justify-content:center;gap:6px;font-family:inherit;transition:background .15s}
-.photo-action-btn:active{background:#dde6f0}
-.photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:2px}
-.thumb-wrap{position:relative;aspect-ratio:1;border-radius:var(--radius-sm);overflow:hidden;border:0.5px solid var(--border)}
-.thumb-wrap img{width:100%;height:100%;object-fit:cover;display:block}
-.thumb-del{position:absolute;top:4px;right:4px;width:22px;height:22px;background:rgba(0,0,0,0.55);border:none;border-radius:50%;color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
-.d-photo-lbl{font-size:13px;font-weight:500;color:var(--text1);padding:14px 16px 8px}
-.d-photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:0 16px 14px}
-.d-photo-item{aspect-ratio:1;border-radius:var(--radius-sm);overflow:hidden;border:0.5px solid var(--border);cursor:pointer}
-.d-photo-item img{width:100%;height:100%;object-fit:cover;display:block}
-.d-section{border-top:0.5px solid var(--border)}
-.d-row{display:flex;justify-content:space-between;align-items:center;padding:9px 16px;border-bottom:0.5px solid var(--border)}
+.tab{padding:6px 12px;border-radius:var(--rst) var(--rst) 0 0;font-size:12px;cursor:pointer;border:0.5px solid transparent;color:var(--t2);background:transparent;white-space:nowrap;flex-shrink:0;font-family:inherit;transition:all .15s}
+.tab.active{background:var(--sf);border-color:var(--bd2);border-bottom-color:var(--sf);color:var(--t1);font-weight:500;position:relative;top:0.5px}
+
+/* sub-filter bar (appears under tabs) */
+.sub-bar{display:flex;gap:5px;overflow-x:auto;padding:8px 14px 4px;background:var(--sf);border-bottom:0.5px solid var(--bd);scrollbar-width:none}
+.sub-bar::-webkit-scrollbar{display:none}
+.sb-btn{padding:4px 12px;border-radius:20px;font-size:11px;border:0.5px solid var(--bd2);background:var(--sf2);color:var(--t2);cursor:pointer;white-space:nowrap;flex-shrink:0;font-family:inherit;transition:all .15s}
+.sb-btn.on{background:var(--p);border-color:var(--p);color:#fff;font-weight:500}
+
+/* ── STATS ── */
+.stats-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 14px}
+.stat-card{background:var(--sf2);border-radius:var(--rst);padding:11px 13px}
+.stat-label{font-size:11px;color:var(--t2);margin-bottom:3px}
+.stat-val{font-size:19px;font-weight:700;color:var(--t1)}
+.stat-val span{font-size:11px;font-weight:400;color:var(--t2)}
+.stat-sub{font-size:10px;color:var(--t3);margin-top:2px}
+
+/* ── SECTION ── */
+.section{padding:0 14px;margin-top:4px}
+.sec-hdr{display:flex;align-items:center;justify-content:space-between;padding:9px 0 6px}
+.sec-title{font-size:13px;font-weight:500;color:var(--t1);display:flex;align-items:center;gap:5px}
+.cnt-badge{background:var(--sf2);color:var(--t2);font-size:10px;padding:2px 7px;border-radius:20px;font-weight:400}
+.sec-rent{font-size:11px;color:var(--t2)}
+
+/* ── CARD ── */
+.mc{background:var(--sf);border:0.5px solid var(--bd);border-radius:var(--rmd);margin-bottom:7px;cursor:pointer;overflow:hidden;transition:transform .1s}
+.mc:active{transform:scale(0.985)}
+.c-thumb{width:100%;height:95px;object-fit:cover;display:block}
+.c-nophoto{width:100%;height:54px;background:var(--sf2);display:flex;align-items:center;justify-content:center;gap:5px;color:var(--t3);font-size:11px;border-bottom:0.5px solid var(--bd)}
+.c-body{padding:9px 11px}
+.c-top{display:flex;align-items:flex-start;gap:9px}
+.c-icon{width:32px;height:32px;border-radius:var(--rst);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
+.ic-water{background:var(--pl)}.ic-ice{background:var(--gBg)}.ic-air{background:var(--purBg)}.ic-hot_cold{background:var(--tealBg)}
+.c-info{flex:1;min-width:0}
+.c-name{font-size:13px;font-weight:500;color:var(--t1);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.c-loc{font-size:11px;color:var(--t2);margin-bottom:3px}
+.c-tags{display:flex;gap:3px;flex-wrap:wrap}
+.tag{font-size:10px;padding:2px 7px;border-radius:20px;border:0.5px solid var(--bd)}
+.t-co{background:var(--sf2);color:var(--t2)}
+.t-ok{background:var(--gBg);color:var(--gTx);border-color:transparent}
+.t-warn{background:var(--aBg);color:var(--aTx);border-color:transparent}
+.t-exp{background:var(--rBg);color:var(--rTx);border-color:transparent}
+.t-photo{background:var(--pl);color:var(--p);border-color:transparent}
+.t-kind{background:var(--sf2);color:var(--t2);border-color:var(--bd2)}
+.c-foot{border-top:0.5px solid var(--bd);margin-top:7px;padding-top:6px;display:flex;justify-content:space-between;align-items:center}
+.c-meta{font-size:10px;color:var(--t2)}
+.c-rent{font-size:12px;font-weight:700;color:var(--t1)}
+
+/* ── OVERLAY / SHEET ── */
+.ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:100;align-items:flex-end;justify-content:center}
+.ov.open{display:flex}
+.sh{background:var(--sf);border-radius:var(--rxl) var(--rxl) 0 0;width:100%;max-width:480px;max-height:92vh;overflow-y:auto;padding-bottom:calc(20px + var(--sb))}
+.sh-hdl{width:36px;height:4px;background:var(--bd2);border-radius:2px;margin:11px auto 4px}
+.sh-hdr{display:flex;align-items:center;justify-content:space-between;padding:8px 15px 12px}
+.sh-title{font-size:15px;font-weight:700;color:var(--t1)}
+.x-btn{width:30px;height:30px;border:0.5px solid var(--bd2);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;background:transparent;color:var(--t2);font-size:16px}
+
+/* ── FORM ── */
+.fb{padding:0 15px}
+.fg{margin-bottom:11px}
+.fl{font-size:12px;color:var(--t2);margin-bottom:4px;display:block}
+.fi,.fs{width:100%;padding:9px 11px;border:0.5px solid var(--bd2);border-radius:var(--rst);background:var(--sf);font-size:13px;color:var(--t1);font-family:inherit;outline:none;-webkit-appearance:none;appearance:none}
+.fi:focus,.fs:focus{border-color:var(--pm)}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.btn-sv{width:100%;padding:13px;background:var(--p);color:#fff;border:none;border-radius:var(--rst);font-size:14px;font-weight:700;cursor:pointer;margin-top:5px;font-family:inherit}
+.btn-rm{width:100%;padding:10px;background:transparent;color:var(--rTx);border:0.5px solid #F09595;border-radius:var(--rst);font-size:13px;cursor:pointer;margin-top:7px;font-family:inherit}
+
+/* photo */
+.pa{display:flex;gap:7px;margin-bottom:7px}
+.pab{flex:1;padding:10px 6px;border:0.5px solid var(--bd2);border-radius:var(--rst);background:var(--sf2);cursor:pointer;font-size:12px;color:var(--t2);display:flex;align-items:center;justify-content:center;gap:5px;font-family:inherit}
+.pab:active{background:#dde8f0}
+.pg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin-top:2px}
+.tw{position:relative;aspect-ratio:1;border-radius:var(--rst);overflow:hidden;border:0.5px solid var(--bd)}
+.tw img{width:100%;height:100%;object-fit:cover;display:block}
+.td{position:absolute;top:3px;right:3px;width:20px;height:20px;background:rgba(0,0,0,0.55);border:none;border-radius:50%;color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+
+/* detail */
+.dp-lbl{font-size:12px;font-weight:500;color:var(--t1);padding:12px 15px 7px}
+.dp-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;padding:0 15px 12px}
+.dp-item{aspect-ratio:1;border-radius:var(--rst);overflow:hidden;border:0.5px solid var(--bd);cursor:pointer}
+.dp-item img{width:100%;height:100%;object-fit:cover;display:block}
+.d-sec{border-top:0.5px solid var(--bd)}
+.d-row{display:flex;justify-content:space-between;align-items:center;padding:9px 15px;border-bottom:0.5px solid var(--bd)}
 .d-row:last-child{border-bottom:none}
-.d-key{font-size:13px;color:var(--text2)}
-.d-val{font-size:13px;color:var(--text1);text-align:right;max-width:62%}
-.d-val.bold{font-weight:700;font-size:14px}
-.d-actions{padding:14px 16px 0;display:flex;gap:8px}
-.d-edit{flex:1;padding:12px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-sm);font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
-.d-del{padding:12px 15px;background:transparent;color:var(--red-text);border:0.5px solid #F09595;border-radius:var(--radius-sm);font-size:14px;cursor:pointer;font-family:inherit}
-.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:300;align-items:center;justify-content:center}
-.lightbox.open{display:flex}
-.lightbox img{max-width:92%;max-height:86vh;border-radius:var(--radius-md);object-fit:contain}
-.lb-close{position:absolute;top:calc(var(--safe-top)+14px);right:16px;width:38px;height:38px;background:rgba(255,255,255,.15);border:none;border-radius:50%;color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;cursor:pointer}
-.install-banner{display:none;background:var(--primary);color:#fff;padding:11px 16px;align-items:center;gap:10px;font-size:13px}
-.install-banner.show{display:flex}
-.install-banner button{margin-left:auto;background:#fff;color:var(--primary);border:none;border-radius:var(--radius-sm);padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;font-family:inherit}
-.install-banner .ib-x{background:transparent;color:rgba(255,255,255,.7);padding:4px;font-size:16px;margin-left:0}
-.empty{padding:44px 16px;text-align:center;color:var(--text3);font-size:14px}
+.d-key{font-size:12px;color:var(--t2)}
+.d-val{font-size:12px;color:var(--t1);text-align:right;max-width:62%}
+.d-val.bold{font-weight:700;font-size:13px}
+.d-act{padding:12px 15px 0;display:flex;gap:7px}
+.d-edit{flex:1;padding:12px;background:var(--p);color:#fff;border:none;border-radius:var(--rst);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit}
+.d-del{padding:12px 14px;background:transparent;color:var(--rTx);border:0.5px solid #F09595;border-radius:var(--rst);font-size:13px;cursor:pointer;font-family:inherit}
+
+/* lightbox */
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:300;align-items:center;justify-content:center}
+.lb.open{display:flex}
+.lb img{max-width:92%;max-height:86vh;border-radius:var(--rmd);object-fit:contain}
+.lb-x{position:absolute;top:calc(var(--st)+12px);right:14px;width:36px;height:36px;background:rgba(255,255,255,.15);border:none;border-radius:50%;color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+
+/* install banner */
+.ib{display:none;background:var(--p);color:#fff;padding:10px 14px;align-items:center;gap:8px;font-size:12px}
+.ib.show{display:flex}
+.ib button{margin-left:auto;background:#fff;color:var(--p);border:none;border-radius:var(--rst);padding:5px 11px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit}
+.ib .ibx{background:transparent;color:rgba(255,255,255,.7);padding:3px;font-size:15px;margin-left:0}
+
+.empty{padding:40px 14px;text-align:center;color:var(--t3);font-size:13px}
 </style>
 </head>
 <body>
-<div class="install-banner" id="installBanner">
+<div class="ib" id="ib">
   <span>📲 홈 화면에 추가하면 앱처럼 사용할 수 있어요</span>
-  <button id="installBtn">설치</button>
-  <button class="ib-x" onclick="document.getElementById('installBanner').classList.remove('show')">✕</button>
+  <button id="ibBtn">설치</button>
+  <button class="ibx" onclick="document.getElementById('ib').classList.remove('show')">✕</button>
 </div>
 <div id="app">
-  <div class="header">
-    <div class="header-top">
+  <div class="hdr">
+    <div class="hdr-top">
       <div class="logo">🏢 <span class="logo-co" id="logoText">티시테크</span> 설비관리</div>
       <button class="btn-add" onclick="openAdd()">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        장비 등록
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>장비 등록
       </button>
     </div>
-    <div class="co-selector" id="coSelector"></div>
+    <div class="co-bar" id="coBar"></div>
+    <!-- 검색 한 줄 -->
     <div class="search-row">
-      <div class="search-wrap">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <input type="text" id="searchInput" placeholder="장비명, 모델, 위치 검색..." oninput="renderAll()">
+      <div class="sw">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="srch" placeholder="장비명, 모델, 위치, 메모 검색..." oninput="renderAll()">
       </div>
-      <button class="filter-btn on" id="fAll" onclick="setFilter('all')">전체</button>
-      <button class="filter-btn" id="fWater" onclick="setFilter('water')">정수기</button>
-      <button class="filter-btn" id="fIce" onclick="setFilter('ice')">제빙기</button>
-      <button class="filter-btn" id="fAir" onclick="setFilter('air')">공기청정기</button>
     </div>
+    <!-- 장비 종류 뱃지 -->
+    <div class="kind-bar" id="kindBar"></div>
   </div>
-  <div class="tabs">
-    <button class="tab active" id="tabLocation" onclick="setTab('location')">위치별</button>
-    <button class="tab" id="tabList" onclick="setTab('list')">전체 목록</button>
-    <button class="tab" id="tabExpiry" onclick="setTab('expiry')">계약 현황</button>
-    <button class="tab" id="tabMfr" onclick="setTab('mfr')">제조사별</button>
+
+  <!-- TABS -->
+  <div class="tabs" id="tabsEl">
+    <button class="tab active" id="tabList"     onclick="setTab('list')">전체 목록</button>
+    <button class="tab"        id="tabLocation" onclick="setTab('location')">위치별</button>
+    <button class="tab"        id="tabMfr"      onclick="setTab('mfr')">제조사별</button>
+    <button class="tab"        id="tabExpiry"   onclick="setTab('expiry')">계약 현황</button>
   </div>
+  <!-- 하위 필터 바 -->
+  <div class="sub-bar" id="subBar"></div>
+
   <div id="mainContent"></div>
 </div>
+
 <!-- ADD/EDIT -->
-<div class="overlay" id="addOverlay">
-  <div class="sheet">
-    <div class="sheet-handle"></div>
-    <div class="sheet-hdr">
-      <div class="sheet-title" id="addTitle">신규 장비 등록</div>
-      <button class="close-btn" onclick="closeAdd()">✕</button>
-    </div>
-    <div class="form-body">
+<div class="ov" id="addOv">
+  <div class="sh">
+    <div class="sh-hdl"></div>
+    <div class="sh-hdr"><div class="sh-title" id="addTitle">신규 장비 등록</div><button class="x-btn" onclick="closeAdd()">✕</button></div>
+    <div class="fb">
       <input type="hidden" id="eId">
-      <div class="fgrp"><label class="flabel">소속 회사</label><select class="fselect" id="eCo"></select></div>
-      <div class="fgrp"><label class="flabel">장비 종류</label>
-        <select class="fselect" id="eKind">
+      <div class="fg"><label class="fl">소속 회사</label><select class="fs" id="eCo"></select></div>
+      <div class="fg"><label class="fl">장비 종류</label>
+        <select class="fs" id="eKind">
           <option value="정수기">💧 정수기</option>
           <option value="제빙기">🧊 제빙기</option>
           <option value="공기청정기">💨 공기청정기</option>
           <option value="냉온수기">🌡 냉온수기</option>
         </select>
       </div>
-      <div class="fgrp"><label class="flabel">설치 위치</label><input class="finput" id="eLoc" placeholder="예: 1공장 탕비실"></div>
-      <div class="fgrp"><label class="flabel">제품명 / 모델명</label><input class="finput" id="eModel" placeholder="예: WPUC500FRESL"></div>
-      <div class="fgrp"><label class="flabel">제조 / 렌탈사</label><input class="finput" id="eCompany" placeholder="예: SK매직, 코웨이, 청호나이스"></div>
-      <div class="frow">
-        <div class="fgrp"><label class="flabel">월 렌탈료 (원)</label><input type="number" class="finput" id="eRental" placeholder="45000"></div>
-        <div class="fgrp"><label class="flabel">계약 기간 (개월)</label><input type="number" class="finput" id="eContractM" placeholder="60"></div>
+      <div class="fg"><label class="fl">설치 위치</label><input class="fi" id="eLoc" placeholder="예: 1공장 탕비실"></div>
+      <div class="fg"><label class="fl">제품명 / 모델명</label><input class="fi" id="eModel" placeholder="예: WPUC500FRESL"></div>
+      <div class="fg"><label class="fl">제조 / 렌탈사</label><input class="fi" id="eComp" placeholder="예: SK매직, 코웨이, 청호나이스"></div>
+      <div class="fr">
+        <div class="fg"><label class="fl">월 렌탈료 (원)</label><input type="number" class="fi" id="eRental" placeholder="45000"></div>
+        <div class="fg"><label class="fl">계약 기간 (개월)</label><input type="number" class="fi" id="eCM" placeholder="60"></div>
       </div>
-      <div class="frow">
-        <div class="fgrp"><label class="flabel">설치일자</label><input type="date" class="finput" id="eInstall"></div>
-        <div class="fgrp"><label class="flabel">계약 만료일</label><input type="date" class="finput" id="eExpiry"></div>
+      <div class="fr">
+        <div class="fg"><label class="fl">설치일자</label><input type="date" class="fi" id="eInst"></div>
+        <div class="fg"><label class="fl">계약 만료일</label><input type="date" class="fi" id="eExp"></div>
       </div>
-      <div class="fgrp"><label class="flabel">담당자 / 메모</label><input class="finput" id="eMemo" placeholder="메모, 특이사항 등"></div>
-      <div class="fgrp">
-        <label class="flabel">장비 사진 (최대 5장)</label>
-        <div class="photo-actions">
-          <button class="photo-action-btn" onclick="document.getElementById('camInput').click()">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>카메라 촬영
+      <div class="fg"><label class="fl">담당자 / 메모</label><input class="fi" id="eMemo" placeholder="메모, 특이사항 등"></div>
+      <div class="fg">
+        <label class="fl">장비 사진 (최대 5장)</label>
+        <div class="pa">
+          <button class="pab" onclick="document.getElementById('camI').click()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>카메라 촬영
           </button>
-          <button class="photo-action-btn" onclick="document.getElementById('galInput').click()">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>갤러리 선택
+          <button class="pab" onclick="document.getElementById('galI').click()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>갤러리 선택
           </button>
         </div>
-        <input type="file" id="camInput" accept="image/*" capture="environment" style="display:none" onchange="handlePhotos(event)">
-        <input type="file" id="galInput" accept="image/*" multiple style="display:none" onchange="handlePhotos(event)">
-        <div class="photo-grid" id="photoGrid"></div>
+        <input type="file" id="camI" accept="image/*" capture="environment" style="display:none" onchange="handlePhotos(event)">
+        <input type="file" id="galI" accept="image/*" multiple style="display:none" onchange="handlePhotos(event)">
+        <div class="pg" id="pg"></div>
       </div>
-      <button class="btn-save" onclick="saveDevice()">저장하기</button>
-      <button class="btn-del" id="delBtn" style="display:none" onclick="deleteDevice()">🗑 이 장비 삭제</button>
+      <button class="btn-sv" onclick="saveDev()">저장하기</button>
+      <button class="btn-rm" id="delBtn" style="display:none" onclick="delDev()">🗑 이 장비 삭제</button>
     </div>
   </div>
 </div>
+
 <!-- DETAIL -->
-<div class="overlay" id="detailOverlay">
-  <div class="sheet">
-    <div class="sheet-handle"></div>
-    <div class="sheet-hdr">
-      <div class="sheet-title" id="dTitle"></div>
-      <button class="close-btn" onclick="closeDetail()">✕</button>
-    </div>
-    <div id="dPhotoArea"></div>
-    <div class="d-section" id="dRows"></div>
-    <div class="d-actions">
-      <button class="d-edit" id="dEditBtn">✏️ 정보 수정</button>
-      <button class="d-del" id="dDelBtn">🗑</button>
-    </div>
+<div class="ov" id="detOv">
+  <div class="sh">
+    <div class="sh-hdl"></div>
+    <div class="sh-hdr"><div class="sh-title" id="dTitle"></div><button class="x-btn" onclick="closeDet()">✕</button></div>
+    <div id="dPA"></div>
+    <div class="d-sec" id="dRows"></div>
+    <div class="d-act"><button class="d-edit" id="dEditBtn">✏️ 정보 수정</button><button class="d-del" id="dDelBtn">🗑</button></div>
   </div>
 </div>
+
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLb()">
-  <button class="lb-close" onclick="closeLb()">✕</button>
-  <img id="lbImg" src="" alt="장비 사진">
+<div class="lb" id="lb" onclick="closeLb()">
+  <button class="lb-x" onclick="closeLb()">✕</button>
+  <img id="lbImg" src="" alt="사진">
 </div>
+
 <script>
-const SK='tsi_equip_v4';
-const COMPANIES=['티시테크','티시스틸','태창철강'];
+const SK='tsi_v5';
+const COS=['티시테크','티시스틸','태창철강'];
 const KIND_MAP={정수기:'water',제빙기:'ice',공기청정기:'air',냉온수기:'hot_cold'};
 const KIND_ICON={water:'💧',ice:'🧊',air:'💨',hot_cold:'🌡'};
-const KIND_CLS={water:'tw',ice:'ti2',air:'tair',hot_cold:'thc'};
-const DEFAULT_DATA=[{"id": "x01", "co": "티시테크", "type": "water", "kind": "정수기", "location": "1공장 사무실내 탕비실", "model": "CHPI-5801LW", "company": "코웨이", "rental": 50050, "contractMonth": 60, "install": "2025-03-04", "expiry": "2030-03-04", "memo": "의무사용 60개월", "photos": []}, {"id": "x02", "co": "티시테크", "type": "water", "kind": "정수기", "location": "2층 사무실내 탕비실", "model": "CHPI-5801LW", "company": "코웨이", "rental": 53900, "contractMonth": 60, "install": "2023-12-29", "expiry": "2028-12-29", "memo": "의무사용 36개월", "photos": []}, {"id": "x03", "co": "티시테크", "type": "water", "kind": "정수기", "location": "작업지시실 사무실내", "model": "WS502SW", "company": "LG전자", "rental": 29900, "contractMonth": 72, "install": "2024-09-12", "expiry": "2030-09-12", "memo": "", "photos": []}, {"id": "x04", "co": "티시테크", "type": "water", "kind": "정수기", "location": "1공장 남자화장실 옆", "model": "WPUC500FRESL", "company": "SK매직", "rental": 44900, "contractMonth": 60, "install": "2023-06-20", "expiry": "2028-06-20", "memo": "의무사용 60개월", "photos": []}, {"id": "x05", "co": "티시테크", "type": "water", "kind": "정수기", "location": "1공장 G2 안쪽(좌)", "model": "WPUC500FRESL", "company": "SK매직", "rental": 45900, "contractMonth": 60, "install": "2022-07-25", "expiry": "2027-07-25", "memo": "의무사용 36개월", "photos": []}, {"id": "x06", "co": "티시테크", "type": "water", "kind": "정수기", "location": "1공장 G2 안쪽(중)", "model": "WPUC500FRESL", "company": "SK매직", "rental": 45900, "contractMonth": 60, "install": "2022-07-25", "expiry": "2027-07-25", "memo": "의무사용 36개월", "photos": []}, {"id": "x07", "co": "티시테크", "type": "water", "kind": "정수기", "location": "1공장 G2 안쪽(우)", "model": "WPUC500FRESL", "company": "SK매직", "rental": 45900, "contractMonth": 60, "install": "2022-07-25", "expiry": "2027-07-25", "memo": "의무사용 36개월", "photos": []}, {"id": "x08", "co": "티시테크", "type": "water", "kind": "정수기", "location": "작업지시실 화장실옆(좌)", "model": "WPUC500FRESL", "company": "SK매직", "rental": 45900, "contractMonth": 60, "install": "2022-07-25", "expiry": "2027-07-25", "memo": "의무사용 36개월", "photos": []}, {"id": "x09", "co": "티시테크", "type": "water", "kind": "정수기", "location": "작업지시실 화장실옆(우)", "model": "WPUC500FRESL", "company": "SK매직", "rental": 45900, "contractMonth": 60, "install": "2022-07-25", "expiry": "2027-07-25", "memo": "의무사용 36개월", "photos": []}, {"id": "x10", "co": "티시테크", "type": "water", "kind": "정수기", "location": "2공장 도장실 탈의실옆", "model": "WPUC500FRESL", "company": "SK매직", "rental": 45900, "contractMonth": 60, "install": "2022-07-25", "expiry": "2027-07-25", "memo": "의무사용 36개월", "photos": []}, {"id": "x11", "co": "티시테크", "type": "water", "kind": "정수기", "location": "G16동 지아 옆", "model": "WPUC500FRESL", "company": "SK매직", "rental": 45900, "contractMonth": 60, "install": "2022-07-25", "expiry": "2027-07-25", "memo": "의무사용 36개월", "photos": []}, {"id": "x12", "co": "티시테크", "type": "air", "kind": "공기청정기", "location": "2층 대표이사실", "model": "ACL25C1ASKCE", "company": "SK매직", "rental": 24110, "contractMonth": 60, "install": "2023-09-26", "expiry": "2028-09-26", "memo": "의무사용 60개월", "photos": []}, {"id": "x13", "co": "티시테크", "type": "air", "kind": "공기청정기", "location": "작업지시실 사무실내", "model": "ACL300VASKWH", "company": "SK매직", "rental": 45900, "contractMonth": 60, "install": "2023-01-31", "expiry": "2028-01-31", "memo": "의무사용 60개월", "photos": []}, {"id": "x14", "co": "티시테크", "type": "air", "kind": "공기청정기", "location": "1층 임원실", "model": "ACL15C1ASKWH", "company": "SK매직", "rental": 19010, "contractMonth": 60, "install": "2023-09-26", "expiry": "2028-09-26", "memo": "의무사용 60개월", "photos": []}, {"id": "x15", "co": "티시테크", "type": "water", "kind": "정수기", "location": "떼떼 지하숙소", "model": "WPUIAC403SMG", "company": "SK매직", "rental": 42710, "contractMonth": 60, "install": "2023-09-26", "expiry": "2028-09-26", "memo": "의무사용 60개월", "photos": []}, {"id": "x16", "co": "티시테크", "type": "hot_cold", "kind": "냉온수기", "location": "2층 대표이사실", "model": "", "company": "풀무원샘물", "rental": 5000, "contractMonth": 0, "install": "2022-11-21", "expiry": "", "memo": "생수1통", "photos": []}, {"id": "x17", "co": "티시테크", "type": "hot_cold", "kind": "냉온수기", "location": "포항 체력단련실 안", "model": "", "company": "풀무원샘물", "rental": 5000, "contractMonth": 0, "install": "2022-11-21", "expiry": "", "memo": "생수1통", "photos": []}, {"id": "x18", "co": "티시테크", "type": "ice", "kind": "제빙기", "location": "작업지시실 화장실옆", "model": "IB-NW10601 아이스트리 큐브", "company": "청호나이스", "rental": 61900, "contractMonth": 60, "install": "2021-07-31", "expiry": "2026-07-31", "memo": "", "photos": []}, {"id": "x19", "co": "티시테크", "type": "ice", "kind": "제빙기", "location": "1공장 G2 안쪽", "model": "IB-NW10601 아이스트리 큐브", "company": "청호나이스", "rental": 0, "contractMonth": 0, "install": "2025-07-04", "expiry": "", "memo": "계약종료 티시테크 소유권이전 (AS유상)", "photos": []}, {"id": "x20", "co": "티시테크", "type": "ice", "kind": "제빙기", "location": "1공장 남자화장실 옆", "model": "", "company": "동양정수커피", "rental": 0, "contractMonth": 0, "install": "2019-08-06", "expiry": "", "memo": "39개월 계약으로 22년도 계약 종료 (AS 유상)", "photos": []}, {"id": "x21", "co": "티시스틸", "type": "water", "kind": "정수기", "location": "G16동 사무실내 탕비실", "model": "WPUIAC302RNE", "company": "SK매직", "rental": 39900, "contractMonth": 60, "install": "2022-06-22", "expiry": "2027-06-22", "memo": "의무사용 60개월", "photos": []}, {"id": "x22", "co": "티시스틸", "type": "water", "kind": "정수기", "location": "1공장 탕비실", "model": "WPUC500FRESL", "company": "SK매직", "rental": 44900, "contractMonth": 60, "install": "2022-08-23", "expiry": "2027-08-23", "memo": "의무사용 36개월", "photos": []}, {"id": "x23", "co": "티시스틸", "type": "water", "kind": "정수기", "location": "1공장 현장", "model": "WPUC500FRESL", "company": "SK매직", "rental": 44900, "contractMonth": 60, "install": "2022-08-23", "expiry": "2027-08-23", "memo": "의무사용 36개월", "photos": []}, {"id": "x24", "co": "티시스틸", "type": "water", "kind": "정수기", "location": "2공장(G15) 휴게실", "model": "WPUB600FREWH", "company": "SK매직", "rental": 26900, "contractMonth": 60, "install": "2023-06-20", "expiry": "2028-06-20", "memo": "의무사용 60개월", "photos": []}, {"id": "x25", "co": "티시스틸", "type": "ice", "kind": "제빙기", "location": "2공장(G15) 휴게실", "model": "", "company": "SK매직", "rental": 0, "contractMonth": 0, "install": "", "expiry": "", "memo": "", "photos": []}, {"id": "x26", "co": "티시스틸", "type": "ice", "kind": "제빙기", "location": "1공장 현장", "model": "IB-NW10601 아이스트리 큐브", "company": "청호나이스", "rental": 59900, "contractMonth": 60, "install": "2025-07-01", "expiry": "2030-06-30", "memo": "2025-07-04 설치완료/의무사용 60개월", "photos": []}, {"id": "x27", "co": "티시스틸", "type": "ice", "kind": "제빙기", "location": "1공장 탕비실", "model": "IB-NW10601 아이스트리 큐브", "company": "청호나이스", "rental": 59900, "contractMonth": 60, "install": "2026-04-21", "expiry": "2031-04-21", "memo": "의무사용 60개월", "photos": []}, {"id": "x28", "co": "티시스틸", "type": "air", "kind": "공기청정기", "location": "떼떼 지하숙소", "model": "ACL15C1ASKWH", "company": "SK매직", "rental": 20900, "contractMonth": 60, "install": "2025-09-12", "expiry": "2030-09-12", "memo": "의무사용 36개월", "photos": []}, {"id": "x29", "co": "티시스틸", "type": "air", "kind": "공기청정기", "location": "대표이사실", "model": "ACL15C1ASKWH", "company": "SK매직", "rental": 20900, "contractMonth": 60, "install": "2025-09-12", "expiry": "2030-09-12", "memo": "의무사용 36개월", "photos": []}, {"id": "x30", "co": "태창철강", "type": "water", "kind": "정수기", "location": "유리동 탕비실", "model": "CHPI-5801LW", "company": "코웨이", "rental": 53900, "contractMonth": 0, "install": "", "expiry": "", "memo": "", "photos": []}, {"id": "x31", "co": "태창철강", "type": "water", "kind": "정수기", "location": "떼떼식당 식수대 #1", "model": "WPUC500FRESL", "company": "SK매직", "rental": 46900, "contractMonth": 60, "install": "2024-12-31", "expiry": "2029-12-31", "memo": "의무사용 60개월", "photos": []}, {"id": "x32", "co": "태창철강", "type": "water", "kind": "정수기", "location": "떼떼식당 식수대 #2", "model": "WPUC500FRESL", "company": "SK매직", "rental": 46900, "contractMonth": 60, "install": "2024-12-31", "expiry": "2029-12-31", "memo": "의무사용 60개월", "photos": []}, {"id": "x33", "co": "태창철강", "type": "water", "kind": "정수기", "location": "떼떼식당 식수대 #3", "model": "WPUC500FRESL", "company": "SK매직", "rental": 46900, "contractMonth": 60, "install": "2024-12-31", "expiry": "2029-12-31", "memo": "의무사용 60개월", "photos": []}, {"id": "x34", "co": "태창철강", "type": "water", "kind": "정수기", "location": "떼떼식당 식수대 #4", "model": "WPUC500FRESL", "company": "SK매직", "rental": 46900, "contractMonth": 60, "install": "2024-12-31", "expiry": "2029-12-31", "memo": "의무사용 60개월", "photos": []}, {"id": "x35", "co": "태창철강", "type": "water", "kind": "정수기", "location": "식당내 조리용수 #1", "model": "WPU9100CREWH", "company": "SK매직", "rental": 17900, "contractMonth": 60, "install": "2025-07-17", "expiry": "2030-07-17", "memo": "의무사용 36개월", "photos": []}, {"id": "x36", "co": "태창철강", "type": "water", "kind": "정수기", "location": "식당내 조리용수 #2", "model": "WPU9100CREWH", "company": "SK매직", "rental": 0, "contractMonth": 60, "install": "2020-07-24", "expiry": "2025-07-24", "memo": "식당 창고내/25년 7월 계약종료 소유권이전(태창)", "photos": []}, {"id": "x37", "co": "태창철강", "type": "ice", "kind": "제빙기", "location": "떼떼식당", "model": "", "company": "SK매직", "rental": 0, "contractMonth": 0, "install": "", "expiry": "", "memo": "", "photos": []}];
-let devices=[],currentCo='티시테크',currentFilter='all',currentTab='location',editingPhotos=[];
+const KIND_LABEL={water:'정수기',ice:'제빙기',air:'공기청정기',hot_cold:'냉온수기'};
+const KIND_CLS={water:'ic-water',ice:'ic-ice',air:'ic-air',hot_cold:'ic-hot_cold'};
+const KB_ON={all:'kb-all',water:'kb-water',ice:'kb-ice',air:'kb-air',hot_cold:'kb-hot_cold'};
+const DD=[{"id": "x01", "co": "티시테크", "kind": "정수기", "type": "water", "location": "1공장 사무실내 탕비실", "model": "CHPI-5801LW", "company": "코웨이", "rental": 50050, "contractMonth": 60, "install": "2025-03-04", "expiry": "2030-03-04", "memo": "의무사용 60개월", "photos": []}, {"id": "x02", "co": "티시테크", "kind": "정수기", "type": "water", "location": "2층 사무실내 탕비실", "model": "CHPI-5801LW", "company": "코웨이", "rental": 53900, "contractMonth": 60, "install": "2023-12-29", "expiry": "2028-12-29", "memo": "의무사용 36개월", "photos": []}, {"id": "x03", "co": "티시테크", "kind": "정수기", "type": "water", "location": "작업지시실 사무실내", "model": "WS502SW", "company": "LG전자", "rental": 29900, "contractMonth": 72, "install": "2024-09-12", "expiry": "2030-09-12", "memo": "", "photos": []}, {"id": "x04", "co": "티시테크", "kind": "정수기", "type": "water", "location": "1공장 남자화장실 옆", "model": "WPUC500FRESL", "company": "SK매직", "rental": 44900, "contractMonth": 60, "install": "2023-06-20", "expiry": "2028-06-20", "memo": "의무사용 60개월", "photos": []}, {"id": "x05", "co": "티시테크", "kind": "정수기", "type": "water", "location": "1공장 G2 안쪽(좌)", "model": "WPUC500FRESL", "company": "SK매직", "rental": 45900, "contractMonth": 60, "install": "2022-07-25", "expiry": "2027-07-25", "memo": "의무사용 36개월", "photos": []}, {"id": "x06", "co": "티시테크", "kind": "정수기", "type": "water", "location": "1공장 G2 안쪽(중)", "model": "WPUC500FRESL", "company": "SK매직", "rental": 45900, "contractMonth": 60, "install": "2022-07-25", "expiry": "2027-07-25", "memo": "의무사용 36개월", "photos": []}, {"id": "x07", "co": "티시테크", "kind": "정수기", "type": "water", "location": "1공장 G2 안쪽(우)", "model": "WPUC500FRESL", "company": "SK매직", "rental": 45900, "contractMonth": 60, "install": "2022-07-25", "expiry": "2027-07-25", "memo": "의무사용 36개월", "photos": []}, {"id": "x08", "co": "티시테크", "kind": "정수기", "type": "water", "location": "작업지시실 화장실옆(좌)", "model": "WPUC500FRESL", "company": "SK매직", "rental": 45900, "contractMonth": 60, "install": "2022-07-25", "expiry": "2027-07-25", "memo": "의무사용 36개월", "photos": []}, {"id": "x09", "co": "티시테크", "kind": "정수기", "type": "water", "location": "작업지시실 화장실옆(우)", "model": "WPUC500FRESL", "company": "SK매직", "rental": 45900, "contractMonth": 60, "install": "2022-07-25", "expiry": "2027-07-25", "memo": "의무사용 36개월", "photos": []}, {"id": "x10", "co": "티시테크", "kind": "정수기", "type": "water", "location": "2공장 도장실 탈의실옆", "model": "WPUC500FRESL", "company": "SK매직", "rental": 45900, "contractMonth": 60, "install": "2022-07-25", "expiry": "2027-07-25", "memo": "의무사용 36개월", "photos": []}, {"id": "x11", "co": "티시테크", "kind": "정수기", "type": "water", "location": "G16동 지아 옆", "model": "WPUC500FRESL", "company": "SK매직", "rental": 45900, "contractMonth": 60, "install": "2022-07-25", "expiry": "2027-07-25", "memo": "의무사용 36개월", "photos": []}, {"id": "x12", "co": "티시테크", "kind": "공기청정기", "type": "air", "location": "2층 대표이사실", "model": "ACL25C1ASKCE", "company": "SK매직", "rental": 24110, "contractMonth": 60, "install": "2023-09-26", "expiry": "2028-09-26", "memo": "의무사용 60개월", "photos": []}, {"id": "x13", "co": "티시테크", "kind": "공기청정기", "type": "air", "location": "작업지시실 사무실내", "model": "ACL300VASKWH", "company": "SK매직", "rental": 45900, "contractMonth": 60, "install": "2023-01-31", "expiry": "2028-01-31", "memo": "의무사용 60개월", "photos": []}, {"id": "x14", "co": "티시테크", "kind": "공기청정기", "type": "air", "location": "1층 임원실", "model": "ACL15C1ASKWH", "company": "SK매직", "rental": 19010, "contractMonth": 60, "install": "2023-09-26", "expiry": "2028-09-26", "memo": "의무사용 60개월", "photos": []}, {"id": "x15", "co": "티시테크", "kind": "정수기", "type": "water", "location": "떼떼 지하숙소", "model": "WPUIAC403SMG", "company": "SK매직", "rental": 42710, "contractMonth": 60, "install": "2023-09-26", "expiry": "2028-09-26", "memo": "의무사용 60개월", "photos": []}, {"id": "x16", "co": "티시테크", "kind": "냉온수기", "type": "hot_cold", "location": "2층 대표이사실", "model": "", "company": "풀무원샘물", "rental": 5000, "contractMonth": 0, "install": "2022-11-21", "expiry": "", "memo": "생수1통", "photos": []}, {"id": "x17", "co": "티시테크", "kind": "냉온수기", "type": "hot_cold", "location": "포항 체력단련실 안", "model": "", "company": "풀무원샘물", "rental": 5000, "contractMonth": 0, "install": "2022-11-21", "expiry": "", "memo": "생수1통", "photos": []}, {"id": "x18", "co": "티시테크", "kind": "제빙기", "type": "ice", "location": "작업지시실 화장실옆", "model": "IB-NW10601 아이스트리 큐브", "company": "청호나이스", "rental": 61900, "contractMonth": 60, "install": "2021-07-31", "expiry": "2026-07-31", "memo": "", "photos": []}, {"id": "x19", "co": "티시테크", "kind": "제빙기", "type": "ice", "location": "1공장 G2 안쪽", "model": "IB-NW10601 아이스트리 큐브", "company": "청호나이스", "rental": 0, "contractMonth": 0, "install": "2025-07-04", "expiry": "", "memo": "계약종료 티시테크 소유권이전 (AS유상)", "photos": []}, {"id": "x20", "co": "티시테크", "kind": "제빙기", "type": "ice", "location": "1공장 남자화장실 옆", "model": "", "company": "동양정수커피", "rental": 0, "contractMonth": 0, "install": "2019-08-06", "expiry": "", "memo": "39개월 계약으로 22년도 계약 종료 (AS 유상)", "photos": []}, {"id": "x21", "co": "티시스틸", "kind": "정수기", "type": "water", "location": "G16동 사무실내 탕비실", "model": "WPUIAC302RNE", "company": "SK매직", "rental": 39900, "contractMonth": 60, "install": "2022-06-22", "expiry": "2027-06-22", "memo": "의무사용 60개월", "photos": []}, {"id": "x22", "co": "티시스틸", "kind": "정수기", "type": "water", "location": "1공장 탕비실", "model": "WPUC500FRESL", "company": "SK매직", "rental": 44900, "contractMonth": 60, "install": "2022-08-23", "expiry": "2027-08-23", "memo": "의무사용 36개월", "photos": []}, {"id": "x23", "co": "티시스틸", "kind": "정수기", "type": "water", "location": "1공장 현장", "model": "WPUC500FRESL", "company": "SK매직", "rental": 44900, "contractMonth": 60, "install": "2022-08-23", "expiry": "2027-08-23", "memo": "의무사용 36개월", "photos": []}, {"id": "x24", "co": "티시스틸", "kind": "정수기", "type": "water", "location": "2공장(G15) 휴게실", "model": "WPUB600FREWH", "company": "SK매직", "rental": 26900, "contractMonth": 60, "install": "2023-06-20", "expiry": "2028-06-20", "memo": "의무사용 60개월", "photos": []}, {"id": "x25", "co": "티시스틸", "kind": "제빙기", "type": "ice", "location": "2공장(G15) 휴게실", "model": "", "company": "SK매직", "rental": 0, "contractMonth": 0, "install": "", "expiry": "", "memo": "", "photos": []}, {"id": "x26", "co": "티시스틸", "kind": "제빙기", "type": "ice", "location": "1공장 현장", "model": "IB-NW10601 아이스트리 큐브", "company": "청호나이스", "rental": 59900, "contractMonth": 60, "install": "2025-07-01", "expiry": "2030-06-30", "memo": "2025-07-04 설치완료/의무사용 60개월", "photos": []}, {"id": "x27", "co": "티시스틸", "kind": "제빙기", "type": "ice", "location": "1공장 탕비실", "model": "IB-NW10601 아이스트리 큐브", "company": "청호나이스", "rental": 59900, "contractMonth": 60, "install": "2026-04-21", "expiry": "2031-04-21", "memo": "의무사용 60개월", "photos": []}, {"id": "x28", "co": "티시스틸", "kind": "공기청정기", "type": "air", "location": "떼떼 지하숙소", "model": "ACL15C1ASKWH", "company": "SK매직", "rental": 20900, "contractMonth": 60, "install": "2025-09-12", "expiry": "2030-09-12", "memo": "의무사용 36개월", "photos": []}, {"id": "x29", "co": "티시스틸", "kind": "공기청정기", "type": "air", "location": "대표이사실", "model": "ACL15C1ASKWH", "company": "SK매직", "rental": 20900, "contractMonth": 60, "install": "2025-09-12", "expiry": "2030-09-12", "memo": "의무사용 36개월", "photos": []}, {"id": "x30", "co": "태창철강", "kind": "정수기", "type": "water", "location": "유리동 탕비실", "model": "CHPI-5801LW", "company": "코웨이", "rental": 53900, "contractMonth": 0, "install": "", "expiry": "", "memo": "", "photos": []}, {"id": "x31", "co": "태창철강", "kind": "정수기", "type": "water", "location": "떼떼식당 식수대 #1", "model": "WPUC500FRESL", "company": "SK매직", "rental": 46900, "contractMonth": 60, "install": "2024-12-31", "expiry": "2029-12-31", "memo": "의무사용 60개월", "photos": []}, {"id": "x32", "co": "태창철강", "kind": "정수기", "type": "water", "location": "떼떼식당 식수대 #2", "model": "WPUC500FRESL", "company": "SK매직", "rental": 46900, "contractMonth": 60, "install": "2024-12-31", "expiry": "2029-12-31", "memo": "의무사용 60개월", "photos": []}, {"id": "x33", "co": "태창철강", "kind": "정수기", "type": "water", "location": "떼떼식당 식수대 #3", "model": "WPUC500FRESL", "company": "SK매직", "rental": 46900, "contractMonth": 60, "install": "2024-12-31", "expiry": "2029-12-31", "memo": "의무사용 60개월", "photos": []}, {"id": "x34", "co": "태창철강", "kind": "정수기", "type": "water", "location": "떼떼식당 식수대 #4", "model": "WPUC500FRESL", "company": "SK매직", "rental": 46900, "contractMonth": 60, "install": "2024-12-31", "expiry": "2029-12-31", "memo": "의무사용 60개월", "photos": []}, {"id": "x35", "co": "태창철강", "kind": "정수기", "type": "water", "location": "식당내 조리용수 #1", "model": "WPU9100CREWH", "company": "SK매직", "rental": 17900, "contractMonth": 60, "install": "2025-07-17", "expiry": "2030-07-17", "memo": "의무사용 36개월", "photos": []}, {"id": "x36", "co": "태창철강", "kind": "정수기", "type": "water", "location": "식당내 조리용수 #2", "model": "WPU9100CREWH", "company": "SK매직", "rental": 0, "contractMonth": 60, "install": "2020-07-24", "expiry": "2025-07-24", "memo": "식당 창고내/25년 7월 계약종료 소유권이전(태창)", "photos": []}, {"id": "x37", "co": "태창철강", "kind": "제빙기", "type": "ice", "location": "떼떼식당", "model": "", "company": "SK매직", "rental": 0, "contractMonth": 0, "install": "", "expiry": "", "memo": "", "photos": []}];
+let devices=[],curCo='티시테크',curKind='all',curTab='list',curSub='all',ephotos=[];
 
-function load(){try{const s=localStorage.getItem(SK);if(s){devices=JSON.parse(s);}else{devices=DEFAULT_DATA.map(d=>({...d}));save();}}catch(e){devices=DEFAULT_DATA.map(d=>({...d}));}}
-function save(){try{localStorage.setItem(SK,JSON.stringify(devices));}catch(e){alert('저장 공간 부족. 사진 수를 줄여주세요.');}}
+/* ── STORAGE ── */
+function load(){try{const s=localStorage.getItem(SK);if(s)devices=JSON.parse(s);else{devices=DD.map(d=>({...d}));save();}}catch(e){devices=DD.map(d=>({...d}));}}
+function save(){try{localStorage.setItem(SK,JSON.stringify(devices));}catch(e){alert('저장 공간 부족.');}}
 function uid(){return 'd'+Date.now()+Math.random().toString(36).slice(2,6);}
 function daysUntil(d){if(!d)return null;return Math.ceil((new Date(d)-new Date())/864e5);}
-function expiryTag(e){const d=daysUntil(e);if(d===null)return '';if(d<0)return '<span class="tag texp">계약만료</span>';if(d<=90)return `<span class="tag twarn">D-${d}</span>`;return '<span class="tag tok">정상</span>';}
+function exTag(e){const d=daysUntil(e);if(d===null)return '';if(d<0)return '<span class="tag t-exp">계약만료</span>';if(d<=90)return `<span class="tag t-warn">D-${d}</span>`;return '<span class="tag t-ok">정상</span>';}
 
-function buildCoSelector(){
-  document.getElementById('coSelector').innerHTML=COMPANIES.map(c=>`<button class="co-btn${c===currentCo?' on':''}" onclick="setCo('${c}')">${c}</button>`).join('');
+/* ── COMPANY BAR ── */
+function buildCo(){
+  document.getElementById('coBar').innerHTML=COS.map(c=>`<button class="co-btn${c===curCo?' on':''}" onclick="setCo('${c}')">${c}</button>`).join('');
 }
-function setCo(co){currentCo=co;document.getElementById('logoText').textContent=co;buildCoSelector();renderAll();}
+function setCo(co){curCo=co;document.getElementById('logoText').textContent=co;curSub='all';buildCo();buildSubBar();renderAll();}
 
-function filtered(){
-  const q=(document.getElementById('searchInput')||{value:''}).value.toLowerCase();
-  return devices.filter(d=>{
-    const coOk=d.co===currentCo;
-    const typeOk=currentFilter==='all'||d.type===currentFilter;
-    const qOk=!q||[d.location,d.model,d.company,d.memo,d.kind].join(' ').toLowerCase().includes(q);
-    return coOk&&typeOk&&qOk;
-  });
+/* ── KIND BADGE BAR ── */
+function buildKindBar(){
+  const kinds=[
+    {k:'all',icon:'📋',label:'전체'},
+    {k:'water',icon:'💧',label:'정수기'},
+    {k:'ice',icon:'🧊',label:'제빙기'},
+    {k:'air',icon:'💨',label:'공기청정기'},
+    {k:'hot_cold',icon:'🌡',label:'냉온수기'},
+  ];
+  document.getElementById('kindBar').innerHTML=kinds.map(({k,icon,label})=>{
+    const cnt=k==='all'?filtered_base().length:filtered_base().filter(d=>d.type===k).length;
+    const onCls=curKind===k?` on ${KB_ON[k]||'kb-all'}`:'';
+    return `<button class="kb${onCls}" onclick="setKind('${k}')">${icon} ${label} <span style="opacity:.7">${cnt}</span></button>`;
+  }).join('');
 }
-function setFilter(f){
-  currentFilter=f;
-  ['All','Water','Ice','Air'].forEach(n=>{
-    const el=document.getElementById('f'+n);if(!el)return;
-    const fv=n.toLowerCase();
-    el.classList.toggle('on',(f==='all'&&n==='All')||f===fv);
-  });
-  renderAll();
+function setKind(k){curKind=k;curSub='all';buildKindBar();buildSubBar();renderAll();}
+
+/* ── SUB BAR ── */
+function getSubItems(){
+  const list=filtered_co_kind();
+  if(curTab==='list')return [];
+  if(curTab==='location'){
+    return ['all',...new Set(list.map(d=>d.location))].filter(Boolean);
+  }
+  if(curTab==='mfr'){
+    return ['all',...new Set(list.map(d=>d.company||'미입력'))].sort();
+  }
+  if(curTab==='expiry'){
+    return ['all','expired','soon','ok','none'];
+  }
+  return [];
 }
+const EXPIRY_LABEL={all:'전체',expired:'계약만료',soon:'90일내',ok:'정상',none:'미입력'};
+function buildSubBar(){
+  const items=getSubItems();
+  const bar=document.getElementById('subBar');
+  if(!items.length){bar.style.display='none';return;}
+  bar.style.display='flex';
+  bar.innerHTML=items.map(v=>{
+    const label=curTab==='expiry'?(EXPIRY_LABEL[v]||v):v==='all'?'전체':v;
+    return `<button class="sb-btn${curSub===v?' on':''}" onclick="setSub('${v}')">${label}</button>`;
+  }).join('');
+}
+function setSub(v){curSub=v;buildSubBar();renderAll();}
+
+/* ── TAB ── */
 function setTab(t){
-  currentTab=t;
-  ['location','list','expiry','mfr'].forEach(id=>{
+  curTab=t;curSub='all';
+  ['list','location','mfr','expiry'].forEach(id=>{
     const el=document.getElementById('tab'+id.charAt(0).toUpperCase()+id.slice(1));
     if(el)el.classList.toggle('active',t===id);
   });
-  renderAll();
+  buildSubBar();renderAll();
 }
 
+/* ── FILTER ── */
+function filtered_base(){
+  const q=(document.getElementById('srch')||{value:''}).value.toLowerCase();
+  return devices.filter(d=>{
+    const cOk=d.co===curCo;
+    const qOk=!q||[d.location,d.model,d.company,d.memo,d.kind].join(' ').toLowerCase().includes(q);
+    return cOk&&qOk;
+  });
+}
+function filtered_co_kind(){
+  return filtered_base().filter(d=>curKind==='all'||d.type===curKind);
+}
+function filtered(){
+  const base=filtered_co_kind();
+  if(curSub==='all')return base;
+  if(curTab==='location')return base.filter(d=>d.location===curSub);
+  if(curTab==='mfr')return base.filter(d=>(d.company||'미입력')===curSub);
+  if(curTab==='expiry'){
+    if(curSub==='expired')return base.filter(d=>daysUntil(d.expiry)<0);
+    if(curSub==='soon')return base.filter(d=>{const dd=daysUntil(d.expiry);return dd>=0&&dd<=90;});
+    if(curSub==='ok')return base.filter(d=>{const dd=daysUntil(d.expiry);return dd>90;});
+    if(curSub==='none')return base.filter(d=>!d.expiry);
+  }
+  return base;
+}
+
+/* ── CARD ── */
 function cardHtml(d){
   const icon=KIND_ICON[d.type]||'📦';
-  const cls=KIND_CLS[d.type]||'tw';
-  const thumb=d.photos&&d.photos.length?`<img class="card-thumb" src="${d.photos[0]}" alt="사진" loading="lazy">`:`<div class="card-no-photo"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><line x1="1" y1="1" x2="23" y2="23"/></svg>사진 없음</div>`;
-  const ptag=d.photos&&d.photos.length?`<span class="tag tphoto">📷${d.photos.length}</span>`:'';
-  const mtag=d.memo?`<span class="tag tco" style="max-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${d.memo}</span>`:'';
-  const kindTag=`<span class="tag tkind">${d.kind||''}</span>`;
-  const rentStr=d.rental?`${d.rental.toLocaleString()}원/월`:'미정';
-  return `<div class="machine-card" onclick="openDetail('${d.id}')">
+  const cls=KIND_CLS[d.type]||'ic-water';
+  const thumb=d.photos&&d.photos.length?`<img class="c-thumb" src="${d.photos[0]}" alt="사진" loading="lazy">`:`<div class="c-nophoto"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><line x1="1" y1="1" x2="23" y2="23"/></svg>사진 없음</div>`;
+  const ptag=d.photos&&d.photos.length?`<span class="tag t-photo">📷${d.photos.length}</span>`:'';
+  const memo=d.memo?`<span class="tag t-co" style="max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block">${d.memo}</span>`:'';
+  const rent=d.rental?`${d.rental.toLocaleString()}원/월`:'미정';
+  return `<div class="mc" onclick="openDet('${d.id}')">
     ${thumb}
-    <div class="card-body">
-      <div class="card-top">
-        <div class="type-icon ${cls}">${icon}</div>
-        <div class="card-info">
-          <div class="card-name">${d.model||'(모델 미입력)'}</div>
-          <div class="card-loc">📍 ${d.location||'-'}</div>
-          <div class="card-tags">${kindTag}<span class="tag tco">${d.company||'-'}</span>${expiryTag(d.expiry)}${ptag}${mtag}</div>
+    <div class="c-body">
+      <div class="c-top">
+        <div class="c-icon ${cls}">${icon}</div>
+        <div class="c-info">
+          <div class="c-name">${d.model||'(모델 미입력)'}</div>
+          <div class="c-loc">📍 ${d.location||'-'}</div>
+          <div class="c-tags"><span class="tag t-kind">${d.kind||''}</span><span class="tag t-co">${d.company||'-'}</span>${exTag(d.expiry)}${ptag}${memo}</div>
         </div>
-        <svg style="color:var(--text3);flex-shrink:0;margin-top:4px" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <svg style="color:var(--t3);flex-shrink:0;margin-top:3px" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
       </div>
-      <div class="card-footer">
-        <span class="footer-meta">설치 ${d.install||'-'} · ${d.contractMonth||'-'}개월</span>
-        <span class="footer-rent">${rentStr}</span>
+      <div class="c-foot">
+        <span class="c-meta">설치 ${d.install||'-'} · ${d.contractMonth||'-'}개월</span>
+        <span class="c-rent">${rent}</span>
       </div>
     </div>
   </div>`;
 }
 
+/* ── STATS ── */
 function statsHtml(list){
   const rent=list.reduce((a,d)=>a+(d.rental||0),0);
-  const w=list.filter(d=>d.type==='water').length;
-  const ic=list.filter(d=>d.type==='ice').length;
-  const air=list.filter(d=>d.type==='air').length;
+  const byKind=Object.entries(KIND_LABEL).map(([k,l])=>{const n=list.filter(d=>d.type===k).length;return n?`${l} ${n}`:null;}).filter(Boolean).join(' · ');
   return `<div class="stats-row">
-    <div class="stat-card"><div class="stat-label">총 장비</div><div class="stat-val">${list.length}<span> 대</span></div><div class="stat-sub">정수기 ${w} · 제빙기 ${ic} · 공청기 ${air}</div></div>
-    <div class="stat-card"><div class="stat-label">월 렌탈료 합계</div><div class="stat-val" style="font-size:17px">${rent.toLocaleString()}<span> 원</span></div><div class="stat-sub">연 ${(rent*12).toLocaleString()}원</div></div>
+    <div class="stat-card"><div class="stat-label">총 장비</div><div class="stat-val">${list.length}<span> 대</span></div><div class="stat-sub">${byKind||'없음'}</div></div>
+    <div class="stat-card"><div class="stat-label">월 렌탈료 합계</div><div class="stat-val" style="font-size:16px">${rent.toLocaleString()}<span> 원</span></div><div class="stat-sub">연 ${(rent*12).toLocaleString()}원</div></div>
   </div>`;
 }
-function emptyHtml(){return `<div class="empty"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="display:block;margin:0 auto 10px;opacity:.4"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>장비가 없습니다</div>`;}
+function emptyHtml(){return `<div class="empty"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="display:block;margin:0 auto 8px;opacity:.35"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>장비가 없습니다</div>`;}
 function secHtml(title,color,items,extra){
   return `<div class="section"><div class="sec-hdr"><div class="sec-title"${color?` style="color:${color}"`:''}>${title}<span class="cnt-badge">${items.length}</span></div>${extra?`<span class="sec-rent">${extra}</span>`:''}</div>${items.map(cardHtml).join('')}</div>`;
 }
 
-function renderLocation(){const list=filtered();if(!list.length)return emptyHtml();return[...new Set(list.map(d=>d.location))].sort().map(loc=>secHtml('📍 '+loc,null,list.filter(d=>d.location===loc))).join('');}
-function renderList(){const list=filtered();if(!list.length)return emptyHtml();return `<div class="section" style="margin-top:8px">${list.map(cardHtml).join('')}</div>`;}
+/* ── RENDER MODES ── */
+function renderList(){
+  const list=filtered();if(!list.length)return emptyHtml();
+  return `<div class="section" style="margin-top:6px">${list.map(cardHtml).join('')}</div>`;
+}
+function renderLocation(){
+  const list=filtered();if(!list.length)return emptyHtml();
+  if(curSub!=='all')return `<div class="section" style="margin-top:6px">${list.map(cardHtml).join('')}</div>`;
+  const locs=[...new Set(list.map(d=>d.location))].sort();
+  return locs.map(loc=>secHtml('📍 '+loc,null,list.filter(d=>d.location===loc))).join('');
+}
+function renderMfr(){
+  const list=filtered();if(!list.length)return emptyHtml();
+  if(curSub!=='all'){
+    const rent=list.reduce((a,d)=>a+(d.rental||0),0);
+    return `<div class="section" style="margin-top:6px">${list.map(cardHtml).join('')}</div>`;
+  }
+  const mfrs=[...new Set(list.map(d=>d.company||'미입력'))].sort();
+  return mfrs.map(m=>{
+    const items=list.filter(d=>(d.company||'미입력')===m);
+    const rent=items.reduce((a,d)=>a+(d.rental||0),0);
+    return secHtml('🏭 '+m,null,items,rent?`${rent.toLocaleString()}원/월`:'');
+  }).join('');
+}
 function renderExpiry(){
-  const list=filtered();
+  const list=filtered_co_kind();
+  if(curSub!=='all'){
+    const sl=filtered();
+    return sl.length?`<div class="section" style="margin-top:6px">${sl.map(cardHtml).join('')}</div>`:emptyHtml();
+  }
   const exp=list.filter(d=>daysUntil(d.expiry)<0);
   const soon=list.filter(d=>{const dd=daysUntil(d.expiry);return dd>=0&&dd<=90;});
   const ok=list.filter(d=>{const dd=daysUntil(d.expiry);return dd>90;});
   const none=list.filter(d=>!d.expiry);
-  let html='';
-  if(exp.length) html+=secHtml('⚠️ 계약 만료','#A32D2D',exp);
-  if(soon.length)html+=secHtml('⏰ 90일 이내 만료','#854F0B',soon);
-  if(ok.length)  html+=secHtml('✅ 정상 계약 중','#3B6D11',ok);
-  if(none.length)html+=secHtml('📋 만료일 미입력',null,none);
-  return html||emptyHtml();
+  let h='';
+  if(exp.length)  h+=secHtml('⚠️ 계약 만료','#A32D2D',exp);
+  if(soon.length) h+=secHtml('⏰ 90일 이내 만료','#854F0B',soon);
+  if(ok.length)   h+=secHtml('✅ 정상 계약 중','#3B6D11',ok);
+  if(none.length) h+=secHtml('📋 만료일 미입력',null,none);
+  return h||emptyHtml();
 }
-function renderMfr(){
-  const list=filtered();if(!list.length)return emptyHtml();
-  return[...new Set(list.map(d=>d.company||'미입력'))].sort().map(mfr=>{
-    const items=list.filter(d=>(d.company||'미입력')===mfr);
-    const rent=items.reduce((a,d)=>a+(d.rental||0),0);
-    return secHtml('🏭 '+mfr,null,items,rent?`${rent.toLocaleString()}원/월`:'');
-  }).join('');
-}
+
 function renderAll(){
+  buildKindBar();
   const list=filtered();
   let c='';
-  if(currentTab==='location')c=renderLocation();
-  else if(currentTab==='list')c=renderList();
-  else if(currentTab==='expiry')c=renderExpiry();
-  else c=renderMfr();
+  if(curTab==='list')c=renderList();
+  else if(curTab==='location')c=renderLocation();
+  else if(curTab==='mfr')c=renderMfr();
+  else c=renderExpiry();
   document.getElementById('mainContent').innerHTML=statsHtml(list)+c;
 }
 
-function renderPhotoGrid(){
-  const g=document.getElementById('photoGrid');if(!g)return;
-  g.innerHTML=editingPhotos.map((src,i)=>`<div class="thumb-wrap"><img src="${src}" loading="lazy" alt="사진${i+1}"><button class="thumb-del" onclick="removePhoto(${i})">✕</button></div>`).join('');
+/* ── PHOTO ── */
+function renderPG(){
+  const g=document.getElementById('pg');if(!g)return;
+  g.innerHTML=ephotos.map((s,i)=>`<div class="tw"><img src="${s}" loading="lazy"><button class="td" onclick="rmPhoto(${i})">✕</button></div>`).join('');
 }
-function removePhoto(i){editingPhotos.splice(i,1);renderPhotoGrid();}
+function rmPhoto(i){ephotos.splice(i,1);renderPG();}
 function handlePhotos(e){
   const files=Array.from(e.target.files);
-  if(editingPhotos.length+files.length>5){alert('최대 5장까지 등록 가능합니다.');return;}
+  if(ephotos.length+files.length>5){alert('최대 5장까지 등록 가능합니다.');return;}
   let done=0;
-  files.forEach(file=>{
-    const reader=new FileReader();
-    reader.onload=ev=>{
+  files.forEach(f=>{
+    const r=new FileReader();
+    r.onload=ev=>{
       const img=new Image();
       img.onload=()=>{
-        const canvas=document.createElement('canvas');
-        const max=900;let w=img.width,h=img.height;
-        if(w>max||h>max){if(w>h){h=Math.round(h*max/w);w=max;}else{w=Math.round(w*max/h);h=max;}}
-        canvas.width=w;canvas.height=h;
-        canvas.getContext('2d').drawImage(img,0,0,w,h);
-        editingPhotos.push(canvas.toDataURL('image/jpeg',0.78));
-        if(++done===files.length)renderPhotoGrid();
+        const c=document.createElement('canvas');
+        const m=900;let w=img.width,h=img.height;
+        if(w>m||h>m){if(w>h){h=Math.round(h*m/w);w=m;}else{w=Math.round(w*m/h);h=m;}}
+        c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);
+        ephotos.push(c.toDataURL('image/jpeg',0.78));
+        if(++done===files.length)renderPG();
       };img.src=ev.target.result;
-    };reader.readAsDataURL(file);
+    };r.readAsDataURL(f);
   });e.target.value='';
 }
 
-function buildCoSelect(sel){document.getElementById('eCo').innerHTML=COMPANIES.map(c=>`<option value="${c}"${c===sel?' selected':''}>${c}</option>`).join('');}
+/* ── ADD/EDIT ── */
+function buildCoSel(sel){document.getElementById('eCo').innerHTML=COS.map(c=>`<option value="${c}"${c===sel?' selected':''}>${c}</option>`).join('');}
 function openAdd(id){
   const d=id?devices.find(x=>x.id===id):null;
   document.getElementById('addTitle').textContent=d?'장비 정보 수정':'신규 장비 등록';
   document.getElementById('eId').value=id||'';
-  buildCoSelect(d?d.co:currentCo);
+  buildCoSel(d?d.co:curCo);
   document.getElementById('eKind').value=d?d.kind:'정수기';
   document.getElementById('eLoc').value=d?d.location:'';
   document.getElementById('eModel').value=d?d.model:'';
-  document.getElementById('eCompany').value=d?d.company:'';
+  document.getElementById('eComp').value=d?d.company:'';
   document.getElementById('eRental').value=d?d.rental:'';
-  document.getElementById('eContractM').value=d?d.contractMonth:'';
-  document.getElementById('eInstall').value=d?d.install:'';
-  document.getElementById('eExpiry').value=d?d.expiry:'';
+  document.getElementById('eCM').value=d?d.contractMonth:'';
+  document.getElementById('eInst').value=d?d.install:'';
+  document.getElementById('eExp').value=d?d.expiry:'';
   document.getElementById('eMemo').value=d?d.memo:'';
-  editingPhotos=d&&d.photos?[...d.photos]:[];
+  ephotos=d&&d.photos?[...d.photos]:[];
   document.getElementById('delBtn').style.display=d?'block':'none';
-  renderPhotoGrid();
-  document.getElementById('addOverlay').classList.add('open');
+  renderPG();
+  document.getElementById('addOv').classList.add('open');
 }
-function closeAdd(){document.getElementById('addOverlay').classList.remove('open');}
-function saveDevice(){
+function closeAdd(){document.getElementById('addOv').classList.remove('open');}
+function saveDev(){
   const id=document.getElementById('eId').value||uid();
   const kind=document.getElementById('eKind').value;
-  const d={id,co:document.getElementById('eCo').value,kind,type:KIND_MAP[kind]||'water',location:document.getElementById('eLoc').value,model:document.getElementById('eModel').value,company:document.getElementById('eCompany').value,rental:parseInt(document.getElementById('eRental').value)||0,contractMonth:parseInt(document.getElementById('eContractM').value)||0,install:document.getElementById('eInstall').value,expiry:document.getElementById('eExpiry').value,memo:document.getElementById('eMemo').value,photos:[...editingPhotos]};
+  const d={id,co:document.getElementById('eCo').value,kind,type:KIND_MAP[kind]||'water',location:document.getElementById('eLoc').value,model:document.getElementById('eModel').value,company:document.getElementById('eComp').value,rental:parseInt(document.getElementById('eRental').value)||0,contractMonth:parseInt(document.getElementById('eCM').value)||0,install:document.getElementById('eInst').value,expiry:document.getElementById('eExp').value,memo:document.getElementById('eMemo').value,photos:[...ephotos]};
   const idx=devices.findIndex(x=>x.id===id);
   if(idx>=0)devices[idx]=d;else devices.push(d);
-  save();closeAdd();renderAll();
+  save();closeAdd();curSub='all';buildSubBar();renderAll();
 }
-function deleteDevice(){
+function delDev(){
   const id=document.getElementById('eId').value;
   if(!id||!confirm('이 장비를 삭제하시겠습니까?'))return;
-  devices=devices.filter(x=>x.id!==id);save();closeAdd();renderAll();
+  devices=devices.filter(x=>x.id!==id);save();closeAdd();buildSubBar();renderAll();
 }
 
-function openDetail(id){
+/* ── DETAIL ── */
+function openDet(id){
   const d=devices.find(x=>x.id===id);if(!d)return;
   const icon=KIND_ICON[d.type]||'📦';
   document.getElementById('dTitle').textContent=icon+' '+(d.model||'(모델 미입력)');
   let pa='';
   if(d.photos&&d.photos.length){
-    pa=`<div class="d-photo-lbl">📷 장비 사진 (${d.photos.length}장)</div><div class="d-photo-grid">${d.photos.map((s,i)=>`<div class="d-photo-item" onclick="openLb('${s}')"><img src="${s}" loading="lazy" alt="사진${i+1}"></div>`).join('')}</div>`;
+    pa=`<div class="dp-lbl">📷 장비 사진 (${d.photos.length}장)</div><div class="dp-grid">${d.photos.map((s,i)=>`<div class="dp-item" onclick="openLb('${s}')"><img src="${s}" loading="lazy"></div>`).join('')}</div>`;
   }
-  document.getElementById('dPhotoArea').innerHTML=pa;
+  document.getElementById('dPA').innerHTML=pa;
   const days=daysUntil(d.expiry);
   const exStr=d.expiry?`${d.expiry}${days!==null?` (${days<0?'만료됨':days<=90?`D-${days}`:'정상'})`:''}`:'-';
   document.getElementById('dRows').innerHTML=`
@@ -441,27 +562,27 @@ function openDetail(id){
     <div class="d-row"><span class="d-key">🗓 계약기간</span><span class="d-val">${d.contractMonth?d.contractMonth+'개월':'-'}</span></div>
     <div class="d-row"><span class="d-key">⏳ 만료일</span><span class="d-val">${exStr}</span></div>
     <div class="d-row"><span class="d-key">📝 메모</span><span class="d-val">${d.memo||'-'}</span></div>`;
-  document.getElementById('dEditBtn').onclick=()=>{closeDetail();openAdd(id);};
-  document.getElementById('dDelBtn').onclick=()=>{if(confirm('삭제하시겠습니까?')){devices=devices.filter(x=>x.id!==id);save();closeDetail();renderAll();}};
-  document.getElementById('detailOverlay').classList.add('open');
+  document.getElementById('dEditBtn').onclick=()=>{closeDet();openAdd(id);};
+  document.getElementById('dDelBtn').onclick=()=>{if(confirm('삭제하시겠습니까?')){devices=devices.filter(x=>x.id!==id);save();closeDet();buildSubBar();renderAll();}};
+  document.getElementById('detOv').classList.add('open');
 }
-function closeDetail(){document.getElementById('detailOverlay').classList.remove('open');}
-function openLb(src){document.getElementById('lbImg').src=src;document.getElementById('lightbox').classList.add('open');}
-function closeLb(){document.getElementById('lightbox').classList.remove('open');}
+function closeDet(){document.getElementById('detOv').classList.remove('open');}
+function openLb(src){document.getElementById('lbImg').src=src;document.getElementById('lb').classList.add('open');}
+function closeLb(){document.getElementById('lb').classList.remove('open');}
 
-document.getElementById('addOverlay').addEventListener('click',e=>{if(e.target===document.getElementById('addOverlay'))closeAdd();});
-document.getElementById('detailOverlay').addEventListener('click',e=>{if(e.target===document.getElementById('detailOverlay'))closeDetail();});
+document.getElementById('addOv').addEventListener('click',e=>{if(e.target===document.getElementById('addOv'))closeAdd();});
+document.getElementById('detOv').addEventListener('click',e=>{if(e.target===document.getElementById('detOv'))closeDet();});
 
-let deferredPrompt=null;
-window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;document.getElementById('installBanner').classList.add('show');});
-document.getElementById('installBtn').addEventListener('click',()=>{if(deferredPrompt){deferredPrompt.prompt();deferredPrompt.userChoice.then(()=>{deferredPrompt=null;document.getElementById('installBanner').classList.remove('show');});}});
-window.addEventListener('appinstalled',()=>document.getElementById('installBanner').classList.remove('show'));
+/* ── PWA ── */
+let dp=null;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;document.getElementById('ib').classList.add('show');});
+document.getElementById('ibBtn').addEventListener('click',()=>{if(dp){dp.prompt();dp.userChoice.then(()=>{dp=null;document.getElementById('ib').classList.remove('show');});}});
+window.addEventListener('appinstalled',()=>document.getElementById('ib').classList.remove('show'));
+const mf={name:"설비관리 — 티시테크그룹",short_name:"설비관리",start_url:"./",display:"standalone",background_color:"#F4F6F9",theme_color:"#0C447C",orientation:"portrait",icons:[{src:"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='32' fill='%230C447C'/><text y='130' x='96' font-size='110' text-anchor='middle'>🏢</text></svg>",sizes:"192x192",type:"image/svg+xml"}]};
+document.getElementById('manifestLink').href=URL.createObjectURL(new Blob([JSON.stringify(mf)],{type:'application/json'}));
 
-const manifest={name:"설비관리 — 티시테크그룹",short_name:"설비관리",description:"정수기·제빙기·공기청정기 설비 관리 앱",start_url:"./",display:"standalone",background_color:"#F4F6F9",theme_color:"#0C447C",orientation:"portrait",icons:[{src:"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='32' fill='%230C447C'/><text y='130' x='96' font-size='110' text-anchor='middle'>🏢</text></svg>",sizes:"192x192",type:"image/svg+xml"},{src:"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='80' fill='%230C447C'/><text y='360' x='256' font-size='300' text-anchor='middle'>🏢</text></svg>",sizes:"512x512",type:"image/svg+xml"}]};
-const blob=new Blob([JSON.stringify(manifest)],{type:'application/json'});
-document.getElementById('manifestLink').href=URL.createObjectURL(blob);
-
-load();buildCoSelector();setFilter('all');
+/* ── INIT ── */
+load();buildCo();buildSubBar();renderAll();
 </script>
 </body>
 </html>
